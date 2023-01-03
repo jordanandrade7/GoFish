@@ -1,0 +1,26 @@
+﻿
+Partners: Jordan Andrade & Shawn Colby
+
+Functions:
+
+shuffle - Jordan A
+deck_size - Jordan A
+printlist - Jordan A
+deal_player_cards - Jordan A
+next_card - Shawn C
+
+add_card - Shawn C
+remove_card - Jordan A
+delete_card_helper - Jordan A
+find_index - Jordan A
+check_add_book - Jordan A
+search - Jordan A
+transfer cards - Jordan A & Shawn C
+game_over - Jordan A
+reset player - Jordan A
+print_book - Jordan A
+computer_play - Shawn C
+user_play - Shawn C
+
+gofish.c main - Shawn C
+start_game - Shawn C

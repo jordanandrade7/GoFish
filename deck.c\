@@ -1,0 +1,90 @@
+//#include "player.h"
+#include "deck.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
+
+int shuffle() {
+
+        char suits[5]={'D','S','C','H'};
+        char ranks[13][3]={"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+	deck_instance = *(struct deck*)malloc(sizeof(struct deck));
+
+	int i;
+	int j;
+	int k=0;
+	for (i=0; i < 13; i++) {
+		for (j=0; j < 4; j++) {
+			strcpy(deck_instance.list[k].rank, ranks[i]);
+			deck_instance.list[k].suit = suits[j];
+			k++;
+		}
+	}
+
+	srand( time(NULL) );
+	int t;
+	int deck_size = 52;
+	for (t=0; t < 52; t++) {
+		int rand_index = rand() % deck_size;
+		struct card temp = deck_instance.list[t];
+		deck_instance.list[t] = deck_instance.list[rand_index];
+		deck_instance.list[rand_index] = temp;
+		//printf("%s%c",deck_instance.list[t].rank,deck_instance.list[t].suit);
+	}
+	int f;
+        for(f=0; f < 52; f++) {
+                //printf("%s%c",deck_instance.list[f].rank,deck_instance.list[f].suit);
+        }
+	return 0;
+}
+
+size_t deck_size() {
+        int counter=0;
+	int index=0;
+        while (deck_instance.list[index].suit != NULL) {
+                counter++;
+                index++;
+        }
+        //printf("%d",counter);
+}
+
+//void printlist(struct hand *head) {
+  //      struct hand *temp = head;
+    //    while (temp != NULL) {
+      //          printf("%d ", 1);
+        //        temp = temp->next;
+	//}
+//}
+
+int deal_player_cards(struct player* target) {
+	printf("%d",1);
+	int i;
+	struct hand *head = NULL;
+	for(i=0; i < 7; i++) {
+		user.card_list = (struct hand*)malloc(sizeof(struct hand));
+		user.card_list->top = deck_instance.list[i];
+		//user.card_list->next = NULL;
+		user.card_list->next = head;
+		head = user.card_list;
+		printf("%c", head);
+	}
+
+//	printlist(head);
+
+        //int s;
+        //for(s=1; s < 52; s++) {
+          //      deck_instance.list[s] = deck_instance.list[s+1];
+            //    deck_instance.list[s] = deck_instance.list[s+1];
+        //}
+        //printf("\n");
+        //int w;
+        //for(w=0; w < 51; w++) { 
+          //      printf("%s%c",deck_instance.list[w].rank,deck_instance.list[w].suit);
+        //}
+	return 0;
+}
+
+struct card* next_card( ) {
+
+}
